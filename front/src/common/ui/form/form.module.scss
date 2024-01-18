@@ -1,0 +1,12 @@
+.form {
+  width: 480px;
+  height: 480px;
+  border-radius: 20px;
+  background: var(--second-bg);
+
+}
+
+.withTitle {
+  display: grid;
+  grid-template-rows: 16% auto;
+}

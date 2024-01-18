@@ -1,0 +1,24 @@
+.button {
+  max-width: 380px;
+  border-radius: 16px;
+  padding: 8px 32px;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.outline {
+  background: inherit;
+  border: 1px solid var(--main-purple);
+}
+
+.filled {
+  color: var(--main-bg);
+  background: var(--main-purple);
+}
+
+.disabled {
+
+}

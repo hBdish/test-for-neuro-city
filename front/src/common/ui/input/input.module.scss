@@ -1,0 +1,17 @@
+@mixin transitionInput {
+  transition: background-color 0.3s;
+}
+
+.input {
+  width: 384px;
+  height: 60px;
+  background: var(--input-bg);
+  padding: 2px 16px;
+  border-radius: 16px;
+  @include transitionInput;
+}
+
+.focused {
+  background: var(--input-bg-focus);
+  @include transitionInput;
+}
