@@ -1,0 +1,24 @@
+version: '3.5'
+
+services:
+
+  db_auth:
+    container_name: db_auth
+    ports:
+      - "6101:6101"
+    environment:
+      - POSTGRES_USER=${TEST_FRO_NEURO_CITY_DB_USER}
+      - POSTGRES_PASSWORD=${TEST_FRO_NEURO_CITY_DB_PASSWORD}
+    env_file:
+      - .env
+    image: postgres:16-alpine
+    command:
+      - "postgres"
+      - "-c"
+      - "port=6101"
+    networks:
+      - internal_net
+
+networks:
+  internal_net:
+    driver: bridge
