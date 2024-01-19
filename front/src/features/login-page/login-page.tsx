@@ -22,7 +22,7 @@ const LoginPage = () => {
   const [showSnackbar, setShowSnackbar] = useState(false)
   const [snackBarErrorMessage, setSnackBarErrorMessage] = useState('')
   const navigate = useNavigate()
-  const {changeAuth} = useUserContext();
+  const {changeAuth, changeAuthSuccessFirst} = useUserContext();
 
 
   const onLoginClick = () => {
@@ -40,6 +40,7 @@ const LoginPage = () => {
       .then(user => {
         localStorage.setItem(TOKEN, user.accessToken)
         changeAuth(true)
+        changeAuthSuccessFirst(true)
         navigate(getRouteUsers())
       })
       .catch(error => {

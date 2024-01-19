@@ -8,10 +8,13 @@ interface UserProvider {
 
 const UserProvider = ({children}: UserProvider) => {
   const [auth, setAuth] = useState<boolean>(false)
+  const [authSuccessFirst, setAuthSuccessFirst] = useState<boolean>(false)
 
   const defaultProps = {
     auth,
-    setAuth
+    authSuccessFirst,
+    setAuth,
+    setAuthSuccessFirst
   }
 
   return (
