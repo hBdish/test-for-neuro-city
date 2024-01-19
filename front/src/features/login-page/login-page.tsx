@@ -1,21 +1,31 @@
 import {Button, Form, getRouteRegistrations, HStack, Input, Snackbar, VStack} from "@/common";
 import {useState} from "react";
 import {useNavigate} from "react-router-dom";
+import {AuthService} from "@/common/services/auth-service.ts";
 
 const LoginPage = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [showSnackbar, setShowSnackbar] = useState(false)
+  const [snackBarErrorMessage, setSnackBarErrorMessage] = useState('')
   const navigate = useNavigate()
 
   const onLoginClick = () => {
-    // AuthService.login({
-    //   email,
-    //   password
-    // }).catch(error => console.log(error?.response?.data))
+    AuthService.login({
+      email,
+      password
+    }).catch(error => {
+      setSnackBarErrorMessage(error?.response?.data?.message)
+      setShowSnackbar(true)
+    })
   }
 
   const onRegClick = () => {
     navigate(getRouteRegistrations())
+  }
+
+  const closeModal = () => {
+    setShowSnackbar(false)
   }
 
   return (
@@ -30,7 +40,7 @@ const LoginPage = () => {
           </HStack>
         </VStack>
       </Form>
-      <Snackbar message={"Hello"}/>
+      <Snackbar isOpen={showSnackbar} onClose={closeModal} message={snackBarErrorMessage}/>
     </HStack>
   );
 };
