@@ -19,6 +19,12 @@ const RegistrationPage = () => {
       email,
       password
     })
+      .then(() => {
+        setSnackBarErrorMessage('Вы успешно зарегистрировались')
+        setShowSnackbar(true)
+        setEmail('')
+        setPassword('')
+      })
       .catch(error => {
         setSnackBarErrorMessage(error?.response?.data?.message)
         setShowSnackbar(true)
@@ -33,8 +39,8 @@ const RegistrationPage = () => {
     <HStack max align={"center"} justify={"center"}>
       <Form title={'Регистрация'}>
         <VStack max align={"center"} justify={"center"} gap={'16'}>
-          <Input placeholder={'email'} value={email} onChange={setEmail}/>
-          <Input placeholder={'password'} value={password} onChange={setPassword}/>
+          <Input type={'email'} placeholder={'email'} value={email} onChange={setEmail}/>
+          <Input type={'password'} placeholder={'password'} value={password} onChange={setPassword}/>
           <HStack gap={'16'}>
             <Button onClick={onRegClick}>Зарегистрироваться</Button>
             <Button variant={"outline"} onClick={onLoginClick}>Войти</Button>

@@ -1,11 +1,19 @@
 import axios, {AxiosInstance, AxiosRequestConfig} from "axios";
+import {TOKEN} from "@/common";
 
 class CommonHttpClient {
   client: AxiosInstance
 
   constructor(config: AxiosRequestConfig) {
     this.client = axios.create(config)
+
+    this.client.interceptors.request.use(config => {
+      config.headers.Authorization = `Bearer ${localStorage.getItem(TOKEN)}`
+
+      return config
+    })
   }
+
 
   get<T>(url: string, config?: AxiosRequestConfig) {
     return this.client.get<T>(url, config).then(({data}) => data)
@@ -25,6 +33,7 @@ class CommonHttpClient {
 }
 
 const $api = new CommonHttpClient({
+  withCredentials: true,
   baseURL: 'http://localhost:6002/api/v1'
 })
 

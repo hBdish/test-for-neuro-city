@@ -6,10 +6,7 @@ interface AuthInfoRequest {
 interface AuthInfoResponse {
   accessToken: string,
   refreshToken: string,
-  user: {
-    email: string,
-    password: string
-  }
+  user: AuthInfoRequest
 }
 
 export type {AuthInfoRequest, AuthInfoResponse}
