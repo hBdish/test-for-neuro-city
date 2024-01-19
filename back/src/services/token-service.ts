@@ -1,11 +1,15 @@
 import jwt from 'jsonwebtoken'
+
 import {ENV} from "../common";
-import {UserDtoType} from "../dto";
-import {TokenModel} from "../models";
+import {UserDtoType} from "../common/dto";
+import {TokenModel} from "../db";
+
 
 class TokenService {
   generateTokens(payload: UserDtoType) {
-    const accessToken = jwt.sign(payload, ENV.JWT_ACCESS_SECRET, {expiresIn: '30m'})
+    const accessToken = jwt.sign(payload, ENV.JWT_ACCESS_SECRET, {expiresIn: '1m'})
+
+    // хотел организовать обновление токена, но тк в ТЗ небыло сказано - в итоге отказался от такой идеи
     const refreshToken = jwt.sign(payload, ENV.JWT_REFRESH_SECRET, {expiresIn: '30d'})
 
     return {

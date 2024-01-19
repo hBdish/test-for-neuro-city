@@ -1,3 +1,7 @@
+/**
+ * Класс для обработки ошибок
+ */
+
 class ApiError extends Error {
   status
   errors

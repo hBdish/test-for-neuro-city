@@ -1,30 +1,29 @@
-# React + TypeScript + Vite
+## Скрипты
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- `dev` - Запуск приложения в dev режиме
+- `build` - Создание билда приложения
+- `lint` - Запуск линтинга
 
-Currently, two official plugins are available:
+## Структура проекта
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [app](./src/app) - Корнева папка приложения
+- [features](./src/features) - Папка с фичами (под фичами в данном контексте подразумеваются страницы)
+- [common](./src/common) - Общая бабка для состовных частей приложения (компоненты, хуки, api, севисы, константы и т.д.)
 
-## Expanding the ESLint configuration
+## Страницы
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- [login-page](./src/features/login-page) - Страница с формой логина
+- [registration-page](./src/features/registration-page) - Страница с формой регистрации
+- [users-page](./src/features/users-page) - Страница со списком пользователей (доступ только авторизованным)
 
-- Configure the top-level `parserOptions` property like this:
+## Хуки
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+- [use-modal](./src/common/hooks/use-modal.tsx) - Хук для удобной работы с модальным окном (подразумеваются любой
+  всплывающий объект)
+- [use-user-context](./src/common/hooks/use-user-context.ts) - Хук для удобной работы с контекстом юзера
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Ui компоненты
+
+- [portal](./src/common/ui/portal) - Portal для вмантрования в DOM дочерних компонентов, при помощи него реализован
+  снек-бар
+- [portal](./src/common/ui/stack) - Компонент для удобного позиционирования компонентов

@@ -1,4 +1,4 @@
-import {Input} from "@/common";
+import {HStack, Input} from "@/common";
 import styles from './user-card.module.scss'
 
 interface UserCard {
@@ -11,7 +11,10 @@ const UserCard = (props: UserCard) => {
   return (
     <article className={styles.userCard}>
       <h2> Email: {email}</h2>
-      <Input type={'password'} disabled value={password}/>
+      <HStack>
+        <span>Пароль</span>
+        <Input type={'password'} disabled value={password}/>
+      </HStack>
     </article>
   );
 };

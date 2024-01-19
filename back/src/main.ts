@@ -3,10 +3,10 @@ import express from "express";
 import cors from 'cors'
 import cookieParser from 'cookie-parser'
 
-import {db, ENV} from "./common";
+import {ENV} from "./common";
 import {router} from "./router";
-import {TokenModel, UserModel} from './models'
-import errorMiddleware from "./middlewares/error-middleware";
+import {db, TokenModel, UserModel} from './db'
+import errorMiddleware from "./common/middlewares/error-middleware";
 import bodyParser from "body-parser";
 
 const app = express()

@@ -7,6 +7,7 @@ class CommonHttpClient {
   constructor(config: AxiosRequestConfig) {
     this.client = axios.create(config)
 
+    // данный интерцептор вписывает аксесс ключ в Header
     this.client.interceptors.request.use(config => {
       config.headers.Authorization = `Bearer ${localStorage.getItem(TOKEN)}`
 
@@ -21,14 +22,6 @@ class CommonHttpClient {
 
   post<T>(url: string, body?: any, config?: AxiosRequestConfig) {
     return this.client.post<T>(url, body, config).then(({data}) => data)
-  }
-
-  put<T>(url: string, body?: any, config?: AxiosRequestConfig) {
-    return this.client.put<T>(url, body, config).then(({data}) => data)
-  }
-
-  delete<T>(url: string, config?: AxiosRequestConfig) {
-    return this.client.delete<T>(url, config).then(({data}) => data)
   }
 }
 

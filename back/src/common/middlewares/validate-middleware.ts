@@ -1,6 +1,6 @@
 import {NextFunction} from "express";
-import {ApiError} from "../exceptions";
-import {LoginRequest} from "../controllers/user/user-controller-types";
+import {ApiError} from "../errors/exceptions";
+import {LoginRequest} from "../../controllers/user/types/user-controller-types";
 
 const EMAIL_REGEXP = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
 

@@ -1,5 +1,5 @@
 import {CreationOptional, DataTypes, InferAttributes, InferCreationAttributes, Model} from 'sequelize'
-import {db} from "../common";
+import {db} from "../db";
 
 
 export interface UserSchema extends Model<InferAttributes<UserSchema>, InferCreationAttributes<UserSchema>> {
