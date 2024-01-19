@@ -3,12 +3,16 @@
 }
 
 .input {
-  width: 384px;
+  width: 360px;
   height: 60px;
   background: var(--input-bg);
   padding: 2px 16px;
   border-radius: 16px;
   @include transitionInput;
+
+  @media screen and (width < 720px) {
+    width: 248px;
+  }
 }
 
 .focused {

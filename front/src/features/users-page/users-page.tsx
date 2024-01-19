@@ -22,7 +22,8 @@ const UsersPage = () => {
   }
 
   return (
-    <VStack max align={"center"} gap={'8'}>
+    // Инлайн стили в качестве исключения, обычно их стараюсь не использовать
+    <VStack max align={"center"} gap={'8'} style={{paddingTop: '40px'}}>
       {users?.map(user =>
         <UserCard key={user.id} password={user.password} email={user.email}/>
       )}

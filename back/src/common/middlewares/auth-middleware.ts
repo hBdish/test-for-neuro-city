@@ -1,7 +1,7 @@
 import express, {NextFunction} from "express";
-import {ApiError} from "../exceptions";
-import {tokenService} from "../services";
-import {UserSchema} from "../models/user-model";
+import {ApiError} from "../errors/exceptions";
+import {tokenService} from "../../services";
+import {UserSchema} from "../../db/models/user-model";
 
 export default function (req: express.Request, res: unknown, next: NextFunction) {
   try {

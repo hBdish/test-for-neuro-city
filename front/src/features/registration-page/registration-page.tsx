@@ -1,4 +1,4 @@
-import {Button, Form, getRouteLogin, HStack, Input, Snackbar, VStack} from "@/common";
+import {Button, Form, getRouteLogin, HStack, Input, Snackbar, validate, VStack} from "@/common";
 import {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {AuthService} from "@/common/services/auth-service.ts";
@@ -15,6 +15,14 @@ const RegistrationPage = () => {
   }
 
   const onRegClick = () => {
+    const validateRes = validate(email, password)
+    
+    if (typeof validateRes !== "boolean") {
+      setSnackBarErrorMessage(validateRes)
+      setShowSnackbar(true)
+      return
+    }
+
     AuthService.registration({
       email,
       password

@@ -1,9 +1,9 @@
 import bcrypt from 'bcrypt'
 
-import {UserModel} from "../models";
-import {UserDto} from "../dto";
+import {UserModel} from "../db/models";
+import {UserDto} from "../common/dto";
 import {tokenService} from "./token-service";
-import {ApiError} from "../exceptions";
+import {ApiError} from "../common/errors/exceptions";
 
 
 class UserService {

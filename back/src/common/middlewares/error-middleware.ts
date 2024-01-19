@@ -1,5 +1,5 @@
 import express from 'express'
-import {ApiError} from "../exceptions";
+import {ApiError} from "../errors/exceptions";
 
 export default function <Request extends express.Request, Response extends express.Response>(
   err: Error,

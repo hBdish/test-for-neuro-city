@@ -1,5 +1,5 @@
 import {Sequelize} from 'sequelize'
-import {ENV} from "./data";
+import {ENV} from "../common/data";
 
 
 const db = new Sequelize(

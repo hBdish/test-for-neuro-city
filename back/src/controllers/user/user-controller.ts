@@ -1,10 +1,10 @@
 import express from "express";
 
-import {LoginRequest, RegistrationRequest} from "./user-controller-types";
-import {UserDtoType} from "../../dto";
-import {ApiError} from "../../exceptions";
+import {LoginRequest, RegistrationRequest} from "./types/user-controller-types";
+import {UserDtoType} from "../../common/dto";
+import {ApiError} from "../../common/errors/exceptions";
 import {userService} from "../../services";
-import {UserModel, UserSchema} from "../../models/user-model";
+import {UserModel, UserSchema} from "../../db/models/user-model";
 
 class UserController {
   async registration(
