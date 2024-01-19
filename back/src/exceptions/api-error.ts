@@ -12,6 +12,14 @@ class ApiError extends Error {
     return new ApiError(401, 'Пользователь не авторизован')
   }
 
+  static EmailValidationError() {
+    return new ApiError(403, 'Неправильно указан email')
+  }
+
+  static PasswordValidationError() {
+    return new ApiError(403, 'Неправильно указан пароль')
+  }
+
   static BadRequest(message: string, errors: Error[] = []) {
     return new ApiError(400, message, errors)
   }

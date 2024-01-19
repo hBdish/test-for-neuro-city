@@ -41,6 +41,15 @@ class TokenService {
 
     return token
   }
+
+  validateAccessToken(token: string) {
+    try {
+      const userData = jwt.verify(token, ENV.JWT_ACCESS_SECRET)
+      return userData
+    } catch (e) {
+      return null
+    }
+  }
 }
 
 const tokenService = new TokenService()
