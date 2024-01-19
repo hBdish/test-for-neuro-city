@@ -7,7 +7,7 @@ interface UserProvider {
 }
 
 const UserProvider = ({children}: UserProvider) => {
-  const [auth, setAuth] = useState<boolean>(true)
+  const [auth, setAuth] = useState<boolean>(false)
 
   const defaultProps = {
     auth,
